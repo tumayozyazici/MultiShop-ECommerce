@@ -48,7 +48,7 @@ namespace MultiShop.Order.WebApi.Controllers
             return Ok("Sipariş detayı başarıyla eklendi.");
         }
 
-        [HttpGet]
+        [HttpPut]
         public async Task<IActionResult> UpdateOrderDetail(UpdateOrderDetailCommand command)
         {
             await _updateOrderDetailCommandHandler.Handle(command);
