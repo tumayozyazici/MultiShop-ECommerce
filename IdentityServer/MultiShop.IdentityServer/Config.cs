@@ -24,6 +24,10 @@ namespace MultiShop.IdentityServer
             {
                 Scopes = {"OrderFullPermission"}
             },
+            new ApiResource("ResourceCargo")
+            {
+                Scopes = {"CargoFullPermission"}
+            },
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -40,6 +44,7 @@ namespace MultiShop.IdentityServer
             new ApiScope("CatalogReadPermission","Reading authority for catalog operations."),
             new ApiScope("DiscountFullPermission","Full authority for discount operations."),
             new ApiScope("OrderFullPermission","Full authority for order operations."),
+            new ApiScope("CargoFullPermission","Full authority for cargo operations."),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -62,7 +67,7 @@ namespace MultiShop.IdentityServer
                 ClientName = "Multi Shop Manager User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = {new Secret("multishopsecret".Sha256())},
-                AllowedScopes = {"CatalogReadPermission", "CatalogFullPermission" }
+                AllowedScopes = {"CatalogReadPermission", "CatalogFullPermission", "CargoFullPermission" }
             },
 
             //Admin
@@ -72,12 +77,13 @@ namespace MultiShop.IdentityServer
                 ClientName = "Multi Shop Admin User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = {new Secret("multishopsecret".Sha256())},
-                AllowedScopes = 
+                AllowedScopes =
                 {
-                    "CatalogFullPermission", 
-                    "CatalogReadPermission", 
-                    "DiscountFullPermission", 
+                    "CatalogFullPermission",
+                    "CatalogReadPermission",
+                    "DiscountFullPermission",
                     "OrderFullPermission",
+                    "CargoFullPermission",
                     IdentityServerConstants.LocalApi.ScopeName,
                     IdentityServerConstants.StandardScopes.Email,
                     IdentityServerConstants.StandardScopes.OpenId,
