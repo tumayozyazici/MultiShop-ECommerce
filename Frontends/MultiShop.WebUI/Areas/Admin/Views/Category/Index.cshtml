@@ -29,14 +29,18 @@
                                 <tr>
                                     <th scope="row">@count</th>
                                     <td>@item.CategoryName</td>
-                                    <td><a href="#" class="btn btn-outline-warning">Kategoriye Ait Ürünler</a></td>
-                                    <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
-                                    <td><a href="#" class="btn btn-outline-dark">Güncelle</a></td>
+                                    <td><a href="#" class="btn btn-warning">Kategoriye Ait Ürünler</a></td>
+                                    <td><a href="/Admin/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Admin/Category/UpdateCategory/@item.CategoryID" class="btn btn-primary">Güncelle</a></td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="#" class="btn btn-outline-success">Kategori Ekle</a>
+                    <a href="/Admin/Category/CreateCategory" style="margin-top:10px" class="btn btn-success">Yeni Kategori Ekle</a>
+                    @if (Model.Count < 1)
+                    {
+                        <span>Kategoriniz bulunmuyor.</span>
+                    }
                 </div>
             </div>
         </div>
