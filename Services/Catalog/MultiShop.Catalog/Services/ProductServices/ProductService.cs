@@ -50,7 +50,10 @@ namespace MultiShop.Catalog.Services.ProductServices
             var values = await _productCollection.Find(x=>true).ToListAsync();
             foreach (var item in values)
             {
-                item.Category = await _categoryCollection.Find(x => x.CategoryID == item.CategoryID).FirstAsync();
+                if (await _categoryCollection.CountDocumentsAsync(x => x.CategoryID == item.CategoryID) > 0)
+                {
+                    item.Category = await _categoryCollection.Find(x => x.CategoryID == item.CategoryID).FirstAsync();
+                }
             }
             return _mapper.Map<List<ResultProductWithCategoryDto>>(values);
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MultiShop.Catalog.Services.CategoryServices;
+using MultiShop.Catalog.Services.FeatureServices;
 using MultiShop.Catalog.Services.FeatureSliderServices;
 using MultiShop.Catalog.Services.ProductDetailServices;
 using MultiShop.Catalog.Services.ProductImageServices;
@@ -28,6 +29,7 @@ namespace MultiShop.Catalog.Registrations
             services.AddScoped<IProductImageService, ProductImageService>();
             services.AddScoped<IFeatureSliderService, FeatureSliderService>();
             services.AddScoped<ISpecialOfferService, SpecialOfferService>();
+            services.AddScoped<IFeatureService, FeatureService>();
 
             // AutoMapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
